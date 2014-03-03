@@ -18,4 +18,4 @@ function pageLoaded(){
 
 /*document ready function*/
 
-$document.ready(pageLoaded);
+$(document).ready(pageLoaded);
