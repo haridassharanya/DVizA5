@@ -11,9 +11,16 @@
 
 /*page loaded function, responds to document ready*/
 
+function dataLoaded(unempData){
+	
+	console.log(unempData);
+}
+
 function googleVizloaded(){
 	
 	console.log("google viz loaded!");
+	
+	$.get("UEMP270V_data.json", dataLoaded, "json");
 }
 
 function pageDone(){
