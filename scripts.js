@@ -11,11 +11,17 @@
 
 /*page loaded function, responds to document ready*/
 
+function googleVizloaded(){
+	
+	console.log("google viz loaded!")
+}
+
 function pageDone(){
 	console.log("page done!");
 	
 	//load google charting package
 	
+	google.load("visualization", "1", {packages:["corechart"], "callback":googleVizLoaded});
 }
 
 
