@@ -30,10 +30,13 @@ function dataLoaded(unempData){
 	for(var i=0; i<myObsArray.length; i++){
 		
 		var myObsObj = myObsArray[i];
-		var myDataArray = [myObsObj.date, myObsObj.value];
+		var myDataArray = [myObsObj.date, Number(myObsObj.value)];
 		myDataList.push(myDataArray);
 		
+
+		
 	}
+	
 	
 console.log(myDataList);
 
