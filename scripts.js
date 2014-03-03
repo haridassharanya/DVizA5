@@ -32,7 +32,13 @@ function dataLoaded(unempData){
 	}
 	
 console.log(myDataList);
-	
+
+var myDataTable = google.visualization.arrayToDataTable(myDataList);
+
+//document.getelementbyid is the equivalent of jquery's $ sign with div name
+var chart = new google.visualization.LineChart(document.getElementById("myChartDiv"));
+       
+
 }
 
 
