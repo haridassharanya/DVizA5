@@ -13,7 +13,7 @@
 
 function googleVizloaded(){
 	
-	console.log("google viz loaded!")
+	console.log("google viz loaded!");
 }
 
 function pageDone(){
@@ -21,7 +21,7 @@ function pageDone(){
 	
 	//load google charting package
 	
-	google.load("visualization", "1", {packages:["corechart"], "callback":googleVizLoaded});
+	google.load("visualization", "1", {packages:["corechart"], "callback":googleVizloaded});
 }
 
 
