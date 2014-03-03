@@ -11,11 +11,14 @@
 
 /*page loaded function, responds to document ready*/
 
-function pageLoaded(){
+function pageDone(){
 	console.log("page done!");
+	
+	//load google charting package
+	
 }
 
 
 /*document ready function*/
 
-$(document).ready(pageLoaded);
+$(document).ready(pageDone);
