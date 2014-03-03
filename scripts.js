@@ -18,6 +18,10 @@ function dataLoaded(unempData){
 	console.log(myObsArray);
 	var myDataList = [];
 	
+	var myHeader = ["Date", "Unemployment"];
+	
+	myDataList.push(myHeader);
+	
 	
 	//converting json data to an array of arrays 
 	//using a for loop
@@ -33,11 +37,17 @@ function dataLoaded(unempData){
 	
 console.log(myDataList);
 
+ var options = {
+          title: "Unemployment Data Over Time"
+        };
+
+//data table object
 var myDataTable = google.visualization.arrayToDataTable(myDataList);
 
 //document.getelementbyid is the equivalent of jquery's $ sign with div name
-var chart = new google.visualization.LineChart(document.getElementById("myChartDiv"));
-       
+var myChart = new google.visualization.LineChart(document.getElementById("myChartDiv"));
+   
+   myChart.draw(myDataTable, options);    
 
 }
 
