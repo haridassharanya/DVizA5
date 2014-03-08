@@ -2,6 +2,8 @@
  * @author Sharanya Haridas
  */
 
+//This project generates a google visualization from a json file
+
 /*Project Steps:
  * 1. Set up document ready
  * 2. Load Google Viz library,Google charts package
@@ -9,70 +11,68 @@
  * 4.Render chart
  */
 
-/*page loaded function, responds to document ready*/
-
-function dataLoaded(unempData){
+function dataLoad(UNEMP){
 	
 	
-	var myObsArray =unempData.observations;
-	console.log(myObsArray);
-	var myDataList = [];
+	var mObsArray =UNEMP.observations;
+	console.log(mObsArray);
+	var mDataList = [];
 	
-	var myHeader = ["Date", "Unemployment"];
+	var mHeader = ["Date", "Unemployment"];
 	
-	myDataList.push(myHeader);
+	mDataList.push(mHeader);
 	
 	
 	//converting json data to an array of arrays 
 	//using a for loop
 	//this is to create my vizualization
 	
-	for(var i=0; i<myObsArray.length; i++){
+	for(var i=0; i<mObsArray.length; i++){
 		
-		var myObsObj = myObsArray[i];
-		var myDataArray = [myObsObj.date, Number(myObsObj.value)];
-		myDataList.push(myDataArray);
+		var mObsObj = mObsArray[i];
+		var mDataArray = [mObsObj.date, Number(mObsObj.value)];
+		mDataList.push(mDataArray);
 		
 
 		
 	}
 	
 	
-console.log(myDataList);
+console.log(mDataList);
 
  var options = {
           title: "Unemployment Data Over Time"
         };
 
 //data table object
-var myDataTable = google.visualization.arrayToDataTable(myDataList);
+var mDataTable = google.visualization.arrayToDataTable(mDataList);
 
 //document.getelementbyid is the equivalent of jquery's $ sign with div name
-var myChart = new google.visualization.LineChart(document.getElementById("myChartDiv"));
+var mChart = new google.visualization.LineChart(document.getElementById("mChartDiv"));
    
-   myChart.draw(myDataTable, options);    
+   mChart.draw(mDataTable, options);    
 
 }
 
 
-function googleVizloaded(){
+function gVizloaded(){
 	
 	console.log("google viz loaded!");
 	
 	//get function for loading data
 	
-	$.get("UEMP270V_data.json", dataLoaded, "json");
+	$.get("UEMP270V_data.json", dataLoad, "json");
 }
 
-function pageDone(){
+function Done(){
 	console.log("page done!");
 	
 	//load google charting package
 	
-	google.load("visualization", "1", {packages:["corechart"], "callback":googleVizloaded});
+	google.load("visualization", "1", {packages:["corechart"], "callback":gVizloaded});
 }
 
 
 /*document ready function*/
 
-$(document).ready(pageDone);
+$(document).ready(Done);
